@@ -8,6 +8,7 @@ COPY system_files /
 COPY scripts /scripts
 
 RUN mkdir -p /var/lib/alternatives && \
+    /scripts/remove_packages.sh && \
     /scripts/install_packages.sh && \
     /scripts/manage_services.sh && \
     ostree container commit
