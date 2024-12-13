@@ -1,4 +1,4 @@
-# Bluefin Image for Developer Laptop
+# Aurora Image for Developer Desktop
 
 ## Building New Images
 
@@ -15,9 +15,10 @@ rpm-ostree status
 ### Rebase to New Version
 
 ```
-rpm-ostree rebase ostree--image-signed:docker://ghcr.io/glycerine102/bluefin-laptop:v40.1.5
+rpm-ostree rebase ostree--image-signed:docker://ghcr.io/glycerine102/aurora-desktop:v41.0.1
 ```
 
 ## After a New Installation
 
 New installs can also use the `ansible-playbook` to grab the needed `homebrew` packages.
+
