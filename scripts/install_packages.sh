@@ -3,11 +3,14 @@
 set -ouex pipefail
 
 system_packages=(
+  "libevdev-devel"
   "sassc"
 )
 
 devops_packages=(
   "alacritty"
+  "cargo"
+  "rust"
 )
 
 networking_packages=(
