@@ -8,8 +8,7 @@ COPY system_files /
 COPY scripts /scripts
 
 RUN \
-    mkdir -p /var/lib/alternatives && \
-    echo "auth optional pam_exec.so expose_authtok /usr/local/sbin/mount-zfs-encrypted-dir" >> /etc/authselect/system-auth
+    mkdir -p /var/lib/alternatives
 
 RUN \
     /scripts/remove_packages.sh && \
