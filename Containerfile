@@ -8,9 +8,13 @@ COPY system_files /
 COPY scripts /scripts
 
 RUN \
-    mkdir -p /var/lib/alternatives
+    tee /etc/pam.d/sddm <<EOF
+    auth       optional    libshavee_pam.so storage/secrets
+    session    optional    libshavee_pam.so storage/secrets
+EOF
 
 RUN \
+    mkdir -p /var/lib/alternatives && \
     /scripts/remove_packages.sh && \
     /scripts/install_packages.sh && \
     /scripts/manage_services.sh && \
