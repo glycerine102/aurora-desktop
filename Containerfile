@@ -8,6 +8,9 @@ COPY system_files /
 COPY scripts /scripts
 
 RUN \
+    rm /etc/skel/.config/autostart/sb-key-notify.desktop
+
+RUN \
     mkdir -p /var/lib/alternatives && \
     /scripts/remove_packages.sh && \
     /scripts/install_packages.sh && \
