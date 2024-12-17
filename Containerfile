@@ -8,10 +8,6 @@ COPY system_files /
 COPY scripts /scripts
 
 RUN \
-    echo "auth       optional    libshavee_pam.so storage/secrets" >> /etc/pam.d/sddm && \
-    echo "session    optional    libshavee_pam.so storage/secrets" >> /etc/pam.d/sddm 
-
-RUN \
     mkdir -p /var/lib/alternatives && \
     /scripts/remove_packages.sh && \
     /scripts/install_packages.sh && \
