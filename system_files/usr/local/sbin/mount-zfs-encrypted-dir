@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-ENCRYPTED_DATASET="storage/secrets" 
+ENCRYPTED_DATASET="storage/secrets"
 
 if [ "$(zfs get keystatus "${ENCRYPTED_DATASET}" -Ho value)" != "available" ]; then
   PASSWORD=$(cat -)
@@ -13,4 +13,3 @@ echo "$(zfs list -rHo name,keystatus,mounted "${ENCRYPTED_DATASET}")" | while IF
     zfs mount "${NAME}" || true
   fi
 done
-
