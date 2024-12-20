@@ -11,6 +11,7 @@ system_packages=(
 devops_packages=(
   "alacritty"
   "cargo"
+  "git-filter-repo"
   "rust"
 )
 
