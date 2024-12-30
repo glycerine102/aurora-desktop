@@ -1,0 +1,9 @@
+[Unit]
+Description=Automount Music NFS Share
+ConditionPathExists=/var/mnt/tuxbox
+
+[Automount]
+Where=/var/mnt/tuxbox/music
+
+[Install]
+WantedBy=multi-user.target

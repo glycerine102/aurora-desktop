@@ -1,0 +1,9 @@
+[Unit]
+Description=Automount Learning NFS Share
+ConditionPathExists=/var/mnt/tuxbox
+
+[Automount]
+Where=/var/mnt/tuxbox/learning
+
+[Install]
+WantedBy=multi-user.target

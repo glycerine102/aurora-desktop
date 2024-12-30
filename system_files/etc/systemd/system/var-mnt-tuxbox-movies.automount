@@ -1,0 +1,9 @@
+[Unit]
+Description=Automount Movies NFS Share
+ConditionPathExists=/var/mnt/tuxbox
+
+[Automount]
+Where=/var/mnt/tuxbox/movies
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=NFS Share for Television
+Requires=network-online.target
+After=network-online.target systemd-resolved.service
+Wants=network-online.target systemd-resolved.service
+
+[Mount]
+What=192.168.24.170:/storage/television
+Where=/var/mnt/tuxbox/television
+Type=nfs
+Options=_netdev,defaults
+TimeoutSec=5
+
+[Install]
+WantedBy=multi-user.target

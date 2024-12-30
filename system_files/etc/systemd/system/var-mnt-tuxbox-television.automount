@@ -1,0 +1,9 @@
+[Unit]
+Description=Automount Television NFS Share
+ConditionPathExists=/var/mnt/tuxbox
+
+[Automount]
+Where=/var/mnt/tuxbox/television
+
+[Install]
+WantedBy=multi-user.target
