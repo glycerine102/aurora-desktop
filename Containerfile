@@ -4,7 +4,7 @@ ARG SOURCE_TAG="stable"
 
 FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 
-COPY system_files /
+COPY rootfs /
 COPY scripts /scripts
 
 RUN \
