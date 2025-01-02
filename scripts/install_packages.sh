@@ -4,6 +4,7 @@ set -ouex pipefail
 
 system_packages=(
   "libevdev-devel"
+  "mbuffer"
   "pam-devel"
   "sassc"
 )
