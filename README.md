@@ -4,7 +4,8 @@
 
 New images are built with Github actions only on semver tags
 (example: `v40.1.4`).
-When a new image is built a package is retained in Github and can then be applied to machines.
+The `latest` tag is also applied to the newest build image.
+When a new image is built, a package is retained in Github and can then be applied to machines.
 
 ### Display Current Version Info
 
@@ -12,10 +13,25 @@ When a new image is built a package is retained in Github and can then be applie
 rpm-ostree status
 ```
 
-### Rebase to New Version
+### Updating and Upgrading
 
-```
+#### Rebase to New Version Tag
+
+Switch to a specific version tag.
+
+```base
 rpm-ostree rebase ostree-image-signed:docker://ghcr.io/glycerine102/aurora-desktop:v41.0.1
+```
+
+#### Upgrade On latest
+
+While on the `latest` tag, a simply update will suffice.
+Since images are set to _only_ build on new git tags, the build action will need triggered manually
+if there was no git push with a tag.
+This is sufficient to obtain image updates from the base stable source.
+
+```bash
+ujust update
 ```
 
 ## After a New Installation
