@@ -3,6 +3,7 @@
 set -ouex pipefail
 
 system_packages=(
+  "lact"
   "libevdev-devel"
   "mbuffer"
   "pam-devel"
