@@ -35,7 +35,7 @@ jobs:
 
     # Removes PHP and other non essentials from the build environment
     - name: Maximize build space
-      uses: ublue-os/remove-unwanted-software@v7
+      uses: ublue-os/remove-unwanted-software@v8
 
     # Build metadata
     - name: Image Metadata
