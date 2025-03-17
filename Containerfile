@@ -9,8 +9,7 @@ COPY scripts /scripts
 
 RUN \
     rm /etc/skel/.config/autostart/sb-key-notify.desktop && \
-    rm /etc/profile.d/sb-key-notify-autostart.sh && \
-    rm /etc/profile.d/ublue-os-just.sh
+    rm /etc/profile.d/sb-key-notify-autostart.sh
 
 ARG SANOID_URL="https://github.com/decoyjoe/sanoid-portable/releases/download/2.2.0-2/sanoid-portable"
 ARG SANOID_DIR="/usr/local/sbin"
