@@ -7,7 +7,6 @@ systemctl enable podman.socket
 systemctl enable input-remapper.service
 systemctl enable sshd.service
 systemctl enable lactd.service
-systemctl enable zfs-load-key.service
 
 # Disable Services
 systemctl disable tailscaled.service
