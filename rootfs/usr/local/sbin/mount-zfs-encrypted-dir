@@ -4,8 +4,7 @@ set -eu
 ENCRYPTED_DATASET="storage/secrets"
 
 if [ "$(zfs get keystatus "${ENCRYPTED_DATASET}" -Ho value)" != "available" ]; then
-  PASSWORD=$(cat -)
-  zfs load-key "${ENCRYPTED_DATASET}" <<< "$PASSWORD" || continue
+  zfs load-key "${ENCRYPTED_DATASET}"
 fi
 
 echo "$(zfs list -rHo name,keystatus,mounted "${ENCRYPTED_DATASET}")" | while IFS=$'\t' read -r NAME KEYSTATUS MOUNTED; do
