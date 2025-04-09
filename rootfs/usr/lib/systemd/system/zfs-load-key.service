@@ -1,14 +1,13 @@
 [Unit]
-Description=Load ZFS Encryption Keys
+Description=Load ZFS Encryption Keys and Mount Datasets
 DefaultDependencies=no
-Before=zfs-mount.service
-After=zfs-import.target
+After=network.target
 Requires=zfs-import.target
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/sbin/zfs load-key -a
+ExecStart=/usr/local/sbin/mount-zfs-encrypted-dir
 
 [Install]
-WantedBy=zfs-mount.service
+WantedBy=multi-user.target
