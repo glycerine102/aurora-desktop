@@ -1,8 +1,8 @@
 [Unit]
 Description=Load ZFS Encryption Keys and Mount Datasets
 DefaultDependencies=no
-After=network.target
-Requires=zfs-import.target
+After=graphical.target
+Requires=graphical.target
 
 [Service]
 Type=oneshot
