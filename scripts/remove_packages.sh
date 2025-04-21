@@ -12,6 +12,7 @@ system_packages=(
   "akonadi-server-mysql"
   "mariadb"
   "mariadb-backup"
+  "mariadb-client-utils"
   "mariadb-common"
   "mariadb-cracklib-password-check"
   "mariadb-errmsg"
