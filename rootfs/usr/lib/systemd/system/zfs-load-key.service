@@ -6,7 +6,6 @@ Requires=graphical.target
 
 [Service]
 Type=oneshot
-RemainAfterExit=yes
 ExecStart=/usr/local/sbin/mount-zfs-encrypted-dir
 
 [Install]
