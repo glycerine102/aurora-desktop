@@ -7,8 +7,9 @@ if [ "$(zfs get keystatus "${ENCRYPTED_DATASET}" -Ho value)" != "available" ]; t
   zfs load-key "${ENCRYPTED_DATASET}"
 fi
 
-echo "$(zfs list -rHo name,keystatus,mounted "${ENCRYPTED_DATASET}")" | while IFS=$'\t' read -r NAME KEYSTATUS MOUNTED; do
-  if [ "${MOUNTED}" != "yes" ] && [ "${KEYSTATUS}" == "available" ]; then
-    zfs mount "${NAME}" || true
-  fi
+zfs list -rHo name,keystatus,mounted "${ENCRYPTED_DATASET}" | \
+while IFS=$'\t' read -r NAME KEYSTATUS MOUNTED; do
+    if [ "${MOUNTED}" != "yes" ] && [ "${KEYSTATUS}" == "available" ]; then
+        zfs mount "${NAME}" || true
+    fi
 done
