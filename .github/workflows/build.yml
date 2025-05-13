@@ -108,4 +108,4 @@ jobs:
       with:
         package-name: 'aurora-desktop'
         package-type: 'container'
-        min-versions-to-keep: 5
+        min-versions-to-keep: 9
