@@ -8,6 +8,7 @@ on:
     - '**/README.md'
   workflow_dispatch:
 
+
 env:
   IMAGE_NAME: "${{ github.event.repository.name }}"
   IMAGE_DESCRIPTION: "Customized Bluefin Image for the Desktop"
@@ -101,3 +102,10 @@ jobs:
         TAGS: ${{ steps.meta.outputs.tags }}
         COSIGN_EXPERIMENTAL: false
         COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
+
+    # Remove old instances of packages
+    - uses: actions/delete-package-versions@v5
+      with:
+        package-name: 'aurora-desktop'
+        package-type: 'container'
+        min-versions-to-keep: 5
