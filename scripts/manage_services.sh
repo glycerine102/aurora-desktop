@@ -3,7 +3,6 @@
 set -ouex pipefail
 
 # Enable Services
-systemctl enable podman.socket
 systemctl enable input-remapper.service
 systemctl enable sshd.service
 systemctl enable lactd.service
