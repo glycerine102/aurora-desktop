@@ -23,4 +23,4 @@ packages=(
   "${system_packages[@]}"
 )
 
-rpm-ostree uninstall "${packages[@]}"
+dnf5 remove -y "${packages[@]}"

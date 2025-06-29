@@ -27,4 +27,4 @@ packages=(
   "${networking_packages[@]}"
 )
 
-rpm-ostree install "${packages[@]}"
+dnf5 install -y "${packages[@]}"
