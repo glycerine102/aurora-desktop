@@ -16,6 +16,10 @@ devops_packages=(
   "rust"
 )
 
+gaming_packages=(
+  "steam"
+)
+
 networking_packages=(
   "netbird"
   "netbird-ui"
@@ -24,6 +28,7 @@ networking_packages=(
 packages=(
   "${system_packages[@]}"
   "${devops_packages[@]}"
+  "${gaming_packages[@]}"
   "${networking_packages[@]}"
 )
 
