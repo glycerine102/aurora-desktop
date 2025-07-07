@@ -9,6 +9,7 @@ COPY scripts /scripts
 
 RUN \
     rm /etc/skel/.config/autostart/sb-key-notify.desktop && \
+    mkdir -p /var/lib/alternatives && \
     ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
 
 ARG SANOID_URL="https://github.com/decoyjoe/sanoid-portable/releases/download/2.2.0-2/sanoid-portable"
@@ -21,8 +22,9 @@ RUN \
     ln -s ${SANOID_DIR}/sanoid-portable /usr/local/sbin/syncoid && \
     ln -s ${SANOID_DIR}/sanoid-portable /usr/local/sbin/findoid
 
-RUN \
-    mkdir -p /var/lib/alternatives && \
+RUN --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
     /scripts/remove_packages.sh && \
     /scripts/install_packages.sh && \
     /scripts/manage_services.sh && \
