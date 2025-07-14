@@ -19,4 +19,4 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/remove_packages.sh && \
     /ctx/install_packages.sh && \
     /ctx/manage_services.sh && \
-    ostree container commit
+    /ctx/cleanup_image.sh
