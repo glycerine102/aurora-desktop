@@ -11,16 +11,6 @@ COPY rootfs /
 
 RUN ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
 
-ARG SANOID_URL="https://github.com/decoyjoe/sanoid-portable/releases/download/2.2.0-2/sanoid-portable"
-ARG SANOID_DIR="/usr/local/sbin"
-RUN \
-    wget ${SANOID_URL} -O ${SANOID_DIR}/sanoid-portable && \
-    chmod +x ${SANOID_DIR}/sanoid-portable && \
-    sh ${SANOID_DIR}/sanoid-portable --assimilate && \
-    ln -s ${SANOID_DIR}/sanoid-portable /usr/local/sbin/sanoid && \
-    ln -s ${SANOID_DIR}/sanoid-portable /usr/local/sbin/syncoid && \
-    ln -s ${SANOID_DIR}/sanoid-portable /usr/local/sbin/findoid
-
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
