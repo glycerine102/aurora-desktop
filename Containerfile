@@ -2,10 +2,12 @@ ARG SOURCE_IMAGE="aurora"
 ARG SOURCE_SUFFIX="-dx"
 ARG SOURCE_TAG="stable-20250713"
 
+FROM scratch AS ctx
+COPY build /
+
 FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 
 COPY rootfs /
-COPY scripts /scripts
 
 RUN \
     rm /etc/skel/.config/autostart/sb-key-notify.desktop && \
@@ -22,10 +24,11 @@ RUN \
     ln -s ${SANOID_DIR}/sanoid-portable /usr/local/sbin/syncoid && \
     ln -s ${SANOID_DIR}/sanoid-portable /usr/local/sbin/findoid
 
-RUN --mount=type=cache,dst=/var/cache \
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
-    /scripts/remove_packages.sh && \
-    /scripts/install_packages.sh && \
-    /scripts/manage_services.sh && \
+    /ctx/remove_packages.sh && \
+    /ctx/install_packages.sh && \
+    /ctx/manage_services.sh && \
     ostree container commit
