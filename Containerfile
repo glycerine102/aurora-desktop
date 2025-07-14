@@ -11,6 +11,7 @@ COPY rootfs /
 
 RUN \
     rm /etc/skel/.config/autostart/sb-key-notify.desktop && \
+    rm /etc/skel/.local/share/flatpak/overrides/com.google.Chrome && \
     mkdir -p /var/lib/alternatives && \
     ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
 
