@@ -1,6 +1,14 @@
 #!/bin/bash
 
-set -ouex pipefail
+set -oue pipefail
+
+trap '[[ $BASH_COMMAND != echo* ]] && [[ $BASH_COMMAND != log* ]] && echo "+ $BASH_COMMAND"' DEBUG
+
+log() {
+  echo "=== $* ==="
+}
+
+log "Begin removing packages"
 
 system_packages=(
   "docker-ce"
@@ -24,3 +32,5 @@ packages=(
 )
 
 dnf5 remove -y "${packages[@]}"
+
+log "Done removing packages"
