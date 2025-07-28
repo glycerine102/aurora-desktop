@@ -36,6 +36,7 @@ devops_packages=(
 )
 
 gaming_packages=(
+  "mangohud"
   "steam"
 )
 
