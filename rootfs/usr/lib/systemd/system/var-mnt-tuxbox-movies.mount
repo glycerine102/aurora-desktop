@@ -5,7 +5,7 @@ After=network-online.target systemd-resolved.service
 Wants=network-online.target systemd-resolved.service
 
 [Mount]
-What=192.168.24.170:/mnt/storage/movies
+What=192.168.24.170:/var/mnt/storage/movies
 Where=/var/mnt/tuxbox/movies
 Type=nfs
 Options=_netdev,defaults
