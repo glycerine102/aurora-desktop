@@ -13,6 +13,7 @@ systemctl enable input-remapper.service
 systemctl enable sshd.service
 systemctl enable lactd.service
 systemctl enable zfs-load-key.service
+systemctl enable zfs-scrub-monthly@storage.timer
 
 log "Disable systemd services"
 systemctl disable tailscaled.service
