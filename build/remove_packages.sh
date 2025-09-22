@@ -25,6 +25,7 @@ system_packages=(
   "mariadb-errmsg"
   "mariadb-gssapi-server"
   "mariadb-server"
+  "tailscale"
 )
 
 packages=(
