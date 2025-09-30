@@ -8,6 +8,10 @@ repos:
     types: [ file, yaml ]
   - id: check-yaml
     args: [ --allow-multiple-documents ]
-    exclude: ^homeassistant/internal/configuration.yaml
   - id: check-added-large-files
     args: [ --maxkb=768 ]
+
+- repo: https://github.com/koalaman/shellcheck-precommit
+  rev: v0.11.0
+  hooks:
+  - id: shellcheck
