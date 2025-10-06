@@ -1,6 +1,6 @@
 ARG SOURCE_IMAGE="aurora"
 ARG SOURCE_SUFFIX="-dx"
-ARG SOURCE_TAG="stable-20250928"
+ARG SOURCE_TAG="stable-20251005"
 
 FROM scratch AS ctx
 COPY build /
