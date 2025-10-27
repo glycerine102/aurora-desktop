@@ -16,6 +16,7 @@ system_packages=(
   "docker-buildx-plugin"
   "docker-compose-plugin"
   "docker-ce-rootless-extras"
+  "docker-model-plugin"
   "akonadi-server"
   "akonadi-server-mysql"
   "mariadb"
